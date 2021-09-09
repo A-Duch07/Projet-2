@@ -1,0 +1,68 @@
+.resize-container-inactive {
+    border: 2px solid transparent;
+}
+.resize-container-active {
+    border: 2px dotted #f00;
+    border-color: #f00;
+    position: absolute;
+    z-index: 10;
+}
+
+#resize-container {
+    position: absolute;
+    z-index: 10;
+}
+
+.edge-box {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: black;
+    transform: translate(100%, 100%);
+    z-index: 10;
+}
+#bottom-right-box {
+    bottom: 0px;
+    right: 0px;
+}
+#bottom-middle-box {
+    bottom: 0px;
+    right: 50%;
+}
+#right-middle-box {
+    right: 0px;
+    bottom: 50%;
+}
+
+.edge-resize-inactive {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    transform: translate(100%, 100%);
+    z-index: 10;
+}
+#bottom-right-edge {
+    bottom: 0px;
+    right: 0px;
+}
+#bottom-middle-edge {
+    bottom: 0px;
+    right: 50%;
+}
+#right-middle-edge {
+    right: 0px;
+    bottom: 50%;
+}
+.edge-resize-active {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    transform: translate(50%, 50%);
+    z-index: 10;
+}
+
+.canvas {
+    z-index: 1;
+}

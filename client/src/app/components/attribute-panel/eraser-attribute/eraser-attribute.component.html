@@ -1,0 +1,6 @@
+<button mat-button (click)="undo()" [disabled]="this.getUndoRedoService().getUndoButtonAvailability()">Annuler</button>
+<button mat-button (click)="redo()" [disabled]="this.getUndoRedoService().getRedoButtonAvailability()">Refaire</button>
+
+<h2>Épaisseur de l'efface</h2>
+<mat-slider thumbLabel color="primary" min="5" max="50" step="1" value="10" (input)="sliderChange($event)"></mat-slider>
+<input (input)="inputChange($event.target.value)" />

@@ -1,0 +1,17 @@
+<h2>Longueur des carrées de la grille</h2>
+<mat-slider
+    thumbLabel
+    color="primary"
+    min="15"
+    max="45"
+    step="1"
+    [value]="this.getGridService().getSquareLenght()"
+    (input)="sizeChange($event)"
+></mat-slider>
+
+<h2>Opacité de la grille</h2>
+<mat-slider thumbLabel color="primary" min="0.5" max="1" step="0.01" [value]="1" (input)="opacityChange($event)"></mat-slider>
+
+<br />
+<button mat-button (click)="drawGrid()">Dessiner la grille</button>
+<button mat-button (click)="cleanGrid()">Retirer la grille</button>

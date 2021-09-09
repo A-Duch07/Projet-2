@@ -1,0 +1,37 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.image-container {
+    border: 1px solid black;
+    padding: 0 5px 0 5px;
+    width: 400px;
+    min-height: 20vh;
+}
+
+img {
+    width: 40%;
+    height: auto;
+}
+
+.blur{
+    filter:blur(4px);
+}
+
+.brightness{
+    filter:brightness(0.30);
+}
+
+.invert{
+    filter:invert(100%);
+}
+
+.grayscale{
+    filter:grayscale(100%);
+}
+
+.saturate{
+    filter:saturate(7);
+}

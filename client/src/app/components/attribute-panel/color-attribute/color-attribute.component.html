@@ -1,0 +1,18 @@
+<div class="container">
+    <button [class.selected]="0 === currentColor" (click)="selectColor(0)">
+        <div class="color-button" [ngStyle]="{ 'background-color': colorService.mainColors[0] }"></div>
+        Primaire
+    </button>
+    <button [class.selected]="1 === currentColor" (click)="selectColor(1)">
+        <div class="color-button" [ngStyle]="{ 'background-color': colorService.mainColors[1] }"></div>
+        Secondaire
+    </button>
+
+    <button (click)="switchColors()"><img src="../../../../assets/tool-images/reverse.PNG" /></button>
+    <div
+        class="previous-color-div"
+        *ngFor="let color of colorService.previousColors"
+        [ngStyle]="{ 'background-color': color }"
+        (mousedown)="previousColorSelection($event, color)"
+    ></div>
+</div>

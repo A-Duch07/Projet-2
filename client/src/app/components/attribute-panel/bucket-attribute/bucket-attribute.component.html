@@ -1,0 +1,4 @@
+<button mat-button (click)="undo()" [disabled]="this.getUndoRedoService().getUndoButtonAvailability()">Annuler</button>
+<button mat-button (click)="redo()" [disabled]="this.getUndoRedoService().getRedoButtonAvailability()">Refaire</button>
+<h2>Tolérance en pourcentage du sceau de couleur</h2>
+<mat-slider thumbLabel color="primary" min="0" max="100" step="1" thumbLabel (input)="sliderChange($event)"></mat-slider>

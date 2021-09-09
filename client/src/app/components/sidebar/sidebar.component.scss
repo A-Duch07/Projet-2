@@ -1,0 +1,43 @@
+.container {
+    height: auto;
+    min-height: 98vh;
+    width: 325px;
+    border: 1px solid black;
+    padding: 0 5px 0 5px;
+    margin-right: 5px;
+}
+
+.sidebar-container {
+    display: flex;
+    height: max-content;
+    flex-direction: column;
+}
+
+img {
+    width: 40px;
+    height: auto;
+}
+
+.tooltip {
+    white-space: pre-line;
+}
+
+.selected {
+    border-style: solid;
+    border-color: green;
+}
+
+.unselected {
+    border: 0px;
+}
+
+.top-container {
+    height: 80%;
+}
+
+.bottom-container {
+    max-height: 15px;
+    
+    
+}
+

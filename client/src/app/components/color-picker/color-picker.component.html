@@ -1,0 +1,21 @@
+<!-- REFERENCES : https://malcoded.com/posts/angular-color-picker/ -->
+
+<div class="color-wrapper">
+    <app-color-palette [hue]="hue" [alpha]="alpha" (color)="colorChange($event)"></app-color-palette>
+    <app-color-slider (color)="hue = $event" style="margin-left: 16px"></app-color-slider>
+</div>
+<div class="input-wrapper">
+    <span class="text"
+        >R : <input maxlength="2" onblur="this.value=''" [placeholder]="unsanitizedRgbValues[0]" (input)="inputChange($event.target.value, 0)"
+    /></span>
+    <span class="text"
+        >G : <input maxlength="2" onblur="this.value=''" [placeholder]="unsanitizedRgbValues[1]" (input)="inputChange($event.target.value, 1)"
+    /></span>
+    <span class="text"
+        >B : <input maxlength="2" onblur="this.value=''" [placeholder]="unsanitizedRgbValues[2]" (input)="inputChange($event.target.value, 2)"
+    /></span>
+    <div class="color-div" [ngStyle]="{ 'background-color': color || 'white' }"></div>
+    <mat-slider thumbLabel class="opacity-slider" color="primary" max="1" step="0.01" value="1" (input)="alphaChange($event)"></mat-slider>
+</div>
+<br />
+<button mat-raised-button mat-dialog-close (click)="selectColor()">Selectionner</button>

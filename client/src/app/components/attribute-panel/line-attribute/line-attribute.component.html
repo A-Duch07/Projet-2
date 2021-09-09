@@ -1,0 +1,11 @@
+<button mat-button (click)="undo()" [disabled]="this.getUndoRedoService().getUndoButtonAvailability()">Annuler</button>
+<button mat-button (click)="redo()" [disabled]="this.getUndoRedoService().getRedoButtonAvailability()">Refaire</button>
+
+<h2>Épaisseur du segment</h2>
+<mat-slider thumbLabel color="primary" min="1" max="50" step="1" value="5" (input)="sliderChange($event)"></mat-slider>
+
+<h2>Point de jonction</h2>
+<button mat-button (click)="junctionChange()">{{ toggle ? 'Avec jonction' : 'Sans jonction' }}</button>
+
+<h2>Épaisseur des jonctions</h2>
+<mat-slider thumbLabel color="primary" min="1" max="50" step="1" value="5" (input)="sliderJunctionChange($event)"></mat-slider>

@@ -1,0 +1,35 @@
+<div class="container">
+    <h1>Sauvegarder le dessin sur le serveur</h1>
+
+    <!-- Input Nom -->
+    <mat-form-field appearance="fill">
+        <mat-label>Nom :</mat-label>
+        <input matInput [formControl]="name" required />
+        <mat-error *ngIf="name.invalid">{{ getErrorMessageName() }}</mat-error>
+    </mat-form-field>
+
+    <!-- Input etiquettes -->
+    <mat-form-field appearance="fill">
+        <mat-label>Étiquettes :</mat-label>
+
+        <mat-chip-list #chipList>
+            <mat-chip *ngFor="let tag of tags" [selectable]="selectable" [removable]="removable" (removed)="removeTag(tag)">
+                {{ tag }}
+                <mat-icon matChipRemove *ngIf="removable"> cancel </mat-icon>
+            </mat-chip>
+            <input
+                placeholder="Étiquettes..."
+                [matChipInputFor]="chipList"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                [matChipInputAddOnBlur]="addOnBlur"
+                (matChipInputTokenEnd)="addTag($event)"
+            />
+        </mat-chip-list>
+
+        <mat-error *ngIf="chipList.errorState">L'étiquette est invalide.</mat-error>
+        <mat-hint>1 à 15 caractères. Caractères valides sont : A-Z, a-z, 0-9 et _.</mat-hint>
+    </mat-form-field>
+
+    <button mat-raised-button (click)="postImageToServeur()" [disabled]="savingImage">Sauvegarder</button>
+    <mat-error *ngIf="serverError">{{ serverErrorMessage }}</mat-error>
+</div>

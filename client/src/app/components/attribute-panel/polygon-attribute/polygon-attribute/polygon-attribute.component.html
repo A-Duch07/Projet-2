@@ -1,0 +1,14 @@
+<button mat-button (click)="undo()" [disabled]="this.getUndoRedoService().getUndoButtonAvailability()">Annuler</button>
+<button mat-button (click)="redo()" [disabled]="this.getUndoRedoService().getRedoButtonAvailability()">Refaire</button>
+
+<h2>Épaisseur du contour</h2>
+<mat-slider thumbLabel color="primary" min="1" max="50" step="1" value="1" (input)="sliderSizeChange($event)"></mat-slider>
+
+<h2>Nombre de côtés</h2>
+<mat-slider thumbLabel color="primary" min="3" max="12" step="1" value="6" (input)="sliderEdgesAmount($event)"></mat-slider>
+
+<h2>Style du polygone</h2>
+
+<button mat-button (click)="selectStyle(0)" [class.selected]="0 === currentStyle">Contour</button>
+<button mat-button (click)="selectStyle(1)" [class.selected]="1 === currentStyle">Plein</button>
+<button mat-button (click)="selectStyle(2)" [class.selected]="2 === currentStyle">P+C</button>

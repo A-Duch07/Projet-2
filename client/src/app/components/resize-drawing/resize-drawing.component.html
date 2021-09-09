@@ -1,0 +1,30 @@
+<div
+    id="resize-container"
+    [style.width.px]="width"
+    [style.height.px]="height"
+    [ngClass]="{ 'resize-container-inactive': !resizing, 'resize-container-active': resizing }"
+    class="resize-container-inactive"
+>
+    <div id="bottom-right-box" class="edge-box"></div>
+    <div id="bottom-middle-box" class="edge-box"></div>
+    <div id="right-middle-box" class="edge-box"></div>
+    <div
+        (mousedown)="edgeClick($event, bottomRightResize)"
+        id="bottom-right-edge"
+        [ngClass]="{ 'edge-resize-inactive': !resizing, 'edge-resize-active': resizing }"
+        class="edge-resize-inactive"
+    ></div>
+    <div
+        (mousedown)="edgeClick($event, bottomMiddleResize)"
+        id="bottom-middle-edge"
+        [ngClass]="{ 'edge-resize-inactive': !resizing, 'edge-resize-active': resizing }"
+        class="edge-resize-inactive"
+    ></div>
+    <div
+        (mousedown)="edgeClick($event, rightMiddleResize)"
+        id="right-middle-edge"
+        [ngClass]="{ 'edge-resize-inactive': !resizing, 'edge-resize-active': resizing }"
+        class="edge-resize-inactive"
+    ></div>
+    <app-drawing [resizeSize]="canvasDimensions" [resizing]="resizing"></app-drawing>
+</div>

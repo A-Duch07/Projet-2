@@ -1,0 +1,39 @@
+<h1 mat-dialog-title>Exporter le dessin</h1>
+<div mat-dialog-content>
+    <p>Choississez le nom du fichier et le format de l'image</p>
+</div>
+<mat-form-field>
+    <mat-label>Nom du fichier</mat-label>
+    <input matInput [(ngModel)]="fileName" />
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+    <mat-label>Format</mat-label>
+    <mat-select [(value)]="fileFormat">
+        <mat-option value="png">PNG</mat-option>
+        <mat-option value="jpeg">JPEG</mat-option>
+    </mat-select>
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+    <mat-label>Filtre</mat-label>
+    <mat-select [(value)]="selectedFilter">
+        <mat-option value="blur">Brouillard</mat-option>
+        <mat-option value="brightness">Luminosite</mat-option>
+        <mat-option value="invert">Couleur inversee</mat-option>
+        <mat-option value="grayscale">Noir et Blanc</mat-option>
+        <mat-option value="saturate">Couleur saturee</mat-option>
+        <mat-option value="">Aucun Filtre</mat-option>
+    </mat-select>
+</mat-form-field>
+
+<button mat-raised-button (click)="download()">Expoter</button>
+<button mat-raised-button (click)="postImageToImgur()">Upload sur Imgur</button>
+
+<img [(class)]="selectedFilter" [(src)]="image" width="600" height="600" />
+
+<p> L'image est presente sur ce lien 
+
+<a href = "{{imageUrl}}"> {{imageUrl}} </a>
+
+</p>

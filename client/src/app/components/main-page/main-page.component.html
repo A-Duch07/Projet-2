@@ -1,0 +1,16 @@
+<div class="container">
+    <h1 class="header-item">Bienvenue au cours {{ title }}</h1>
+
+
+    <button class="button" routerLink="/editor" (click)="newDrawing()">Creer un nouveau dessin</button>
+
+    <button mat-raised-button (click)="openDialog()">Ouvrir le caroussel de dessin</button>
+
+    <button *ngIf="continueButton" class="button" routerLink="/editor">Continuer un dessin</button>
+
+    <div class="footer-item">
+        <h4 class="team-name">Équipe Poly</h4>
+        <p>Victor Emond, Anthony Ducharme, Alexandre Touchette, Marjorie D'Astout-Lepage, Renaud Gironne</p>
+    </div>
+</div>
+

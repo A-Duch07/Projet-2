@@ -1,0 +1,46 @@
+<h2>Taille de la police</h2>
+<mat-slider thumbLabel color="primary" min="10" max="100" step="1" value="20" (input)="policeHeightChange($event)"></mat-slider>
+
+<br/>
+
+<h2>Police</h2>
+<select (change)="policeChange($event)" name="policeChosen" id="policeList">
+  <option value="Arial" style="font-family: Arial;">Arial</option>
+  <option value="Broadway" style="font-family: Broadway;">Broadway</option>
+  <option value="Cambria" style="font-family: Cambria;">Cambria</option>
+  <option value="Calibri" style="font-family: Calibri;">Calibri</option>
+  <option value="Century" style="font-family: Century;">Century</option>
+  <option value="Times New Roman" style="font-family: Times New Roman;">Times New Roman</option>
+</select><br/><br/>
+
+<h2>Aligner le texte</h2>
+<select (change)="alignerChange($event)" name="aligner" id="aligner">
+  <option value="left">À gauche</option>
+  <option value="center">Centrer</option>
+  <option value="right">À droite</option>
+</select><br/><br/>
+
+
+
+<input type="checkbox" id="bold" name="bold" checked="true" (change)="boldChange($event)">
+<label for="bold" style="font-weight: bold;"> Gras </label><br/>
+
+<input type="checkbox" id="italic" name="italic" checked="true" (change)="italiqueChange($event)">
+<label for="bold" style="font-style: italic;"> Italique </label><br/><br/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

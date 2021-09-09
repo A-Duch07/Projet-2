@@ -1,0 +1,26 @@
+<button mat-button (click)="undo()" [disabled]="this.getUndoRedoService().getUndoButtonAvailability()">Annuler</button>
+<button mat-button (click)="redo()" [disabled]="this.getUndoRedoService().getRedoButtonAvailability()">Refaire</button>
+<button mat-button (click)="copy()" [disabled]="noSelection">Copier</button>
+<button mat-button (click)="cut()" [disabled]="noSelection">Couper</button>
+<button mat-button (click)="delete()" [disabled]="noSelection">Supprimer</button>
+<button mat-button (click)="paste()" [disabled]="noClipboard">Coller</button>
+<button mat-button (click)="selectCanvas()">Select All</button>
+
+<h2>Options de magnetisme</h2>
+<mat-form-field appearance="fill">
+    <mat-label>Choisir un coin</mat-label>
+    <mat-select (selectionChange)="onCornerChange($event)" value="this.anchor">
+        <mat-option value="0">Haut-Gauche</mat-option>
+        <mat-option value="1">Haut-Centre</mat-option>
+        <mat-option value="2">Haut-Droit</mat-option>
+        <mat-option value="3">Gauche-Milieu</mat-option>
+        <mat-option value="4">Droite-Milieu</mat-option>
+        <mat-option value="5">Bas-Gauche</mat-option>
+        <mat-option value="6">Bas-Milieu</mat-option>
+        <mat-option value="7">Bas-Droite</mat-option>
+        <mat-option value="8">Milieu</mat-option>
+    </mat-select>
+</mat-form-field>
+
+<h2>Type d'ancrage</h2>
+<button mat-button (click)="onMagnetismChange()" value="this.anchor">{{ toggle ? 'Ancrage' : 'Libre' }}</button>

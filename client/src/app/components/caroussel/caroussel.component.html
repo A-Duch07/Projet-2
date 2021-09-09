@@ -1,0 +1,72 @@
+<div class="container">
+    <!-- carousel -->
+    <div *ngIf="!isEmpty" class="carousel">
+        <!--<ng-container *ngFor="let slide of slides; let i = index">
+            <img *ngIf="i === currentSlide" [src]="slide.src" class="slide" />
+        </ng-container>-->
+
+        <ng-container *ngFor="let slide of slides; let i = index">
+            <img *ngIf="i === previousSlide" [src]="slide.src" class="slide" />
+        </ng-container>
+
+        <ng-container *ngFor="let slide of slides; let i = index">
+            <img *ngIf="i === currentSlide" [src]="slide.src" class="slide" />
+        </ng-container>
+
+        <ng-container *ngFor="let slide of slides; let i = index">
+            <img *ngIf="i === nextSlide" [src]="slide.src" class="slide" />
+        </ng-container>
+
+        <!-- controls -->
+        <button class="control prev" (click)="onPreviousClick()">
+            <span class="arrow left"></span>
+        </button>
+        <button class="control next" (click)="onNextClick()">
+            <span class="arrow right"></span>
+        </button>
+    </div>
+    <mat-error *ngIf="isEmpty">
+        <h1>Le carousel est vide! Il n'y a pas d'images sur le serveur (ou d'image correspondant à vos étiquettes).</h1>
+    </mat-error>
+
+    <div class="info-container">
+        <h1 mat-dialog-title>Information (dessin du centre)</h1>
+
+        <div *ngFor="let slide of slides; let i = index">
+            <p *ngIf="i === currentSlide">
+                Nom: {{ slide.nom }} <br />
+                Tags: {{ slide.tags }} <br />
+            </p>
+        </div>
+
+        <button mat-raised-button [mat-dialog-close] (click)="openDrawing()" routerLink="/editor">Ouvrir ce dessin</button>
+        <p></p>
+        <button mat-raised-button (click)="deleteCurrentDrawing()">Supprimer ce dessin</button>
+
+        <!-- Filtrage par etiquette -->
+        <div>
+            <mat-form-field appearance="fill" class="search-bar">
+                <mat-label>Étiquettes :</mat-label>
+
+                <mat-chip-list #chipList>
+                    <mat-chip *ngFor="let tag of tags" [selectable]="selectable" [removable]="removable" (removed)="removeTag(tag)">
+                        {{ tag }}
+                        <mat-icon matChipRemove *ngIf="removable"> cancel </mat-icon>
+                    </mat-chip>
+                    <input
+                        placeholder="Étiquettes..."
+                        [matChipInputFor]="chipList"
+                        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                        [matChipInputAddOnBlur]="addOnBlur"
+                        (matChipInputTokenEnd)="addTag($event)"
+                    />
+                </mat-chip-list>
+
+                <mat-error *ngIf="chipList.errorState">L'étiquette est invalide.</mat-error>
+                <mat-hint>1 à 15 caractères. Caractères valides sont : A-Z, a-z, 0-9 et _.</mat-hint>
+            </mat-form-field>
+            &nbsp;
+            <button mat-raised-button (click)="searchForDrawing()">Rechercher</button>
+        </div>
+    </div>
+</div>

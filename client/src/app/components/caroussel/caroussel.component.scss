@@ -1,0 +1,90 @@
+.container {
+    display: block;
+    height: 600px;
+    width: 1400px;
+    padding: 2em;
+}
+:host {
+    flex: 1;
+}
+
+.carousel {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    height: 80%;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 0.5em;
+}
+
+.slide {
+    width: 33%;
+    height: 50%;
+}
+
+.side-slide {
+    width: 15%;
+    height: 50%;
+}
+
+// =========================
+// Next and Prev buttons
+// =========================
+.control {
+    border: none;
+    background-color: transparent;
+    outline: 0; // remove blue outline border, but make sure they are still focussable for accessibility
+    position: absolute;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0.5em;
+    color: white;
+    font-weight: bold;
+    font-size: 3em;
+    user-select: none;
+    height: 100%;
+    opacity: 80%;
+
+    /* Position the buttons */
+    &.next {
+        right: 0;
+    }
+    &.prev {
+        left: 0;
+    }
+}
+
+/* style the arrows */
+.arrow {
+    display: block;
+    border-left: 0.1em solid black;
+    border-bottom: 0.1em solid black;
+    width: 0.5em;
+    height: 0.5em;
+
+    &.left {
+        transform: rotate(45deg);
+    }
+    &.right {
+        transform: rotate(225deg);
+    }
+}
+
+.info-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    min-height: 30vh;
+    border: 1px solid black;
+    padding: 0 5px 0 5px;
+    margin-right: 5px;
+    justify-content: space-evenly;
+}
+
+.search-bar {
+    width: 400px;
+}
